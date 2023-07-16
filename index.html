@@ -1,206 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600&display=swap" rel="stylesheet">
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/78035ae5d2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            sans: ["Dosis", "sans-serif"],
+          },
+          extend: {
+            backgroundSize: {
+              "100%": "100%",
+            },
+            colors: {
+              primary: "#ebb401",
+            },
+            backgroundImage: {
+              "intro-background":
+                "url('./assets/joanna-kosinska-1_CMoFsPfso-unsplash.jpeg')",
+            },
+          },
+        },
+      };
+    </script>
+    <title>Thuc Huyen's Portfolio</title>
+  </head>
 
-  <link href="./css/custom.css" rel="stylesheet">
+  <body class="flex flex-col h-screen">
+    <header class="sticky top-0 right-0 left-0">
+      <nav
+        class="py-5 bg-gray-900 flex flex-col sm:flex-row justify-around text-lg"
+        id="main-navbar"
+      >
+        <a class="text-primary ml-5 sm:ml-0" href="#about">ABOUT</a>
+        <a class="text-primary ml-5 sm:ml-0" href="#skills">SKILLS</a>
+        <a class="text-primary ml-5 sm:ml-0" href="#work-experience"
+          >WORK EXPERIENCE</a
+        >
+      </nav>
+    </header>
+    <main class="flex-grow">
+      <article
+        class="p-5 sm:bg-100% sm:bg-top bg-primary sm:bg-intro-background"
+        id="about"
+      >
+        <div class="flex flex-col items-end my-5 text-end">
+          <h1 class="my-3 text-4xl font-medium">THUC HUYEN</h1>
+          <h3 class="my-3 text-2xl font-medium">
+            Front-end Developer | Full-stack Developer
+          </h3>
+          <p class="my-3 w-1/2">
+            An accomplished Full-stack developer with skills and experience on
+            the latest Javascript technology and framework for creating rich
+            user experience applications.
+          </p>
+          <div class="fs-2 my-3 text-2xl">
+            <i class="fab fa-js"></i>
+            <i class="fab fa-react"></i>
+            <i class="fab fa-html5"></i>
+            <i class="fab fa-css3-alt"></i>
+            <i class="fab fa-aws"></i>
+            <i class="fab fa-docker"></i>
+            <i class="fab fa-github"></i>
+          </div>
+        </div>
+      </article>
 
-  <script src="https://kit.fontawesome.com/78035ae5d2.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+      <article class="-mt-5" id="skills">
+        <div class="flex flex-col sm:flex-row sm:mx-10 bg-gray-50 rounded">
+          <div class="w-full sm:w-1/2">
+            <div class="border-primary h-100">
+              <div class="text-center my-4">
+                <div class="fs-4 mb-4 text-primary">
+                  <i class="fas fa-code"></i>
+                </div>
+                <h4 class="text-xl font-medium">Front-End Stack</h4>
+                <div class="mt-3">
+                  <div class="text-primary">Primary Skills:</div>
+                  Javascript, React/Redux/NextJS, HTML/HTML5, CSS/SASS
+                </div>
+                <div class="mt-3">
+                  <div class="text-primary">Dev Tools:</div>
+                  Visual Studio Code, Github, Bootstrap, Foundation, TailwindCSS
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <title>Thuc Huyen's Portfolio</title>
-</head>
+          <div class="w-full sm:w-1/2">
+            <div class="border-primary h-100">
+              <div class="text-center my-4">
+                <div class="fs-4 mb-4 text-primary">
+                  <i class="fas fa-database"></i>
+                </div>
+                <h4 class="text-xl font-medium">Back-End Stack</h4>
+                <div class="mt-3">
+                  <div class="text-primary">Languages I use:</div>
+                  NodeJS, Ruby, PHP, SQL
+                </div>
+                <div class="mt-3">
+                  <div class="text-primary">Databases System:</div>
+                  PostgreSQL, MySQL, DynamoDB, MongoDB
+                </div>
+                <div class="mt-3">
+                  <div class="text-primary">Framework:</div>
+                  Rails, ExpressJS
+                </div>
+                <div class="mt-3">
+                  <div class="text-primary">CI/CD tools:</div>
+                  Docker, Kubernetes, AWS
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
 
-<body>
-  <header>
-    <nav class="py-3 bg-dark fixed-top" id="main-navbar">
-      <div class="d-flex flex-column flex-sm-row justify-content-around">
-        <span class="nav-item">
-          <a class="nav-link text-primary" href="#about">ABOUT</a>
-        </span>
-        <span class="nav-item">
-          <a class="nav-link text-primary" href="#skills">SKILLS</a>
-        </span>
-        <span class="nav-item">
-          <a class="nav-link text-primary" href="#work-experience">WORK EXPERIENCE</a>
-        </span>
+      <article class="mt-12" id="work-experience">
+        <h2 class="mb-10 text-center text-3xl font-medium">
+          My Work Experience
+        </h2>
+        <div
+          class="flex flex-col sm:flex-row justify-center mx-2 flex-1 sm:flex-wrap"
+        >
+          <div
+            class="mb-4 w-full sm:w-1/2 flex flex-col items-center"
+            x-data="{open: false}"
+          >
+            <button
+              class="flex flex-col justify-center items-center"
+              x-on:click="open = ! open"
+            >
+              <img
+                src="./assets/lojistic.jpeg"
+                class="img-fluid mb-4"
+                width="100"
+              />
+              <div>
+                <h4 class="text-xl font-medium text-primary">
+                  Software Engineer at Lojistic
+                </h4>
+                <p class="text-dark">Jun 2020 - Dec 2021</p>
+              </div>
+            </button>
+            <div class="m-auto w-3/4 shadow-sm p-4" x-show="open">
+              <p>
+                Architect and modernize an internal system that allows end-users
+                to efficiently manage crucial information of clients and their
+                organizations and perform complicated actions within a couple of
+                clicks
+              </p>
+              <p>
+                Refactor legacy application into reusable architecture by
+                gradually migrating from legacy MVC and multiple-page web
+                application to MVC with REST API and single-page web application
+              </p>
+              <p>
+                Seamlessly integrate with Salesforce and other internal systems
+                to keep data in sync, processed at accurate time, and aggregated
+              </p>
+              <p>
+                Perform data analysis to find deprecated data and identify data
+                relationships to generate different types of reports
+              </p>
+              <p>
+                Actively participate in troubleshooting issues with existing
+                applications, including defective features and performance
+                bottlenecks
+              </p>
+            </div>
+          </div>
+          <div
+            class="mb-4 w-full sm:w-1/2 flex flex-col items-center"
+            x-data="{open: false}"
+          >
+            <button
+              class="flex flex-col justify-center items-center"
+              x-on:click="open = ! open"
+            >
+              <img
+                src="./assets/zobrist.jpeg"
+                class="img-fluid mb-4"
+                width="100"
+              />
+              <div>
+                <h4 class="text-xl font-medium text-primary">
+                  Full-stack Developer at Zobrist Consulting Group
+                </h4>
+                <p class="text-dark">Jan 2018 - Jun 2020</p>
+              </div>
+            </button>
+            <div class="m-auto w-3/4 shadow-sm p-4" x-show="open">
+              <p>
+                Worked on Mobiecom, a single application and mobile-first UI
+                storefront designed for WebSphere Commerce and WebSphere
+                Commerce Managed Hosted platform using React/Redux and
+                NodeJS/ExpressJS
+              </p>
+              <p>
+                Participated in the onboarding of Mobiecom's clients, including
+                providing production support as part of the Managed Services
+                team
+              </p>
+              <p>Onboard VF Corporation</p>
+              <p>
+                Seamlessly migrated Foundation 4 to Foundation 6 including SCSS
+                and JS
+              </p>
+              <p>
+                Collaborated with other developers and product managers to
+                produce thoughtful implementations
+              </p>
+              <p>
+                Collaborated with QA by providing instructions and identifying
+                areas to focus
+              </p>
+              <p>
+                Improved user experience through continual UI/UX fixes for all
+                the brands on the VF platform
+              </p>
+            </div>
+          </div>
+          <div
+            class="mb-4 w-full sm:w-1/2 flex flex-col items-center"
+            x-data="{open: false}"
+          >
+            <button
+              class="flex flex-col justify-center items-center"
+              x-on:click="open = ! open"
+            >
+              <img
+                src="./assets/mytailor.jpeg"
+                class="img-fluid mb-4"
+                width="100"
+              />
+              <div>
+                <h4 class="text-xl font-medium text-primary">
+                  Software Engineer Intern at Mytailor.com
+                </h4>
+                <p class="text-dark">Feb 2017 - Dec 2017</p>
+              </div>
+            </button>
+            <div class="m-auto w-3/4 shadow-sm p-4" x-show="open">
+              <p>
+                Developed and designed software using PHP, MySQL, JQuery, and
+                HTML/CSS to create solid software with great user experiences,
+                responsive and high performance
+              </p>
+              <p>
+                Involved actively in application design, including data modeling
+                and application architecture
+              </p>
+              <p>
+                Maintained, enhanced, and troubleshot existing applications
+                Improved 90% of the digital customer experience through
+                continual UI and UX improvements and fixes
+              </p>
+              <p>
+                Collaborated with the SEO team to constantly improve website’s
+                index ranking to the first page of google search results with
+                targeted search terms
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+    <footer class="text-center mt-5 text-primary py-2 bg-gray-900 text-lg">
+      <div class="contact-me fs-2">
+        <a href="https://www.linkedin.com/in/thuc-huyen/"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a href="https://github.com/thuctonhuyen"
+          ><i class="fab fa-github"></i
+        ></a>
       </div>
-    </nav>
-  </header>
-  <main class="position-relative" data-bs-spy="scroll" data-bs-target="main-navbar" tabindex="0">
-    <article class="container-fluid quick-introduction p-5" id="about">
-      <div class="d-flex flex-column align-items-end my-5 text-end">
-        <h1 class="my-3">THUC HUYEN</h1>
-        <h3 class="my-3">Front-end Developer | Full-stack Developer</h3>
-        <p class="my-3 w-50">
-          An accomplished Full-stack developer with skills and experience on the latest Javascript technology and
-          framework for creating rich user experience applications.
-        </p>
-        <div class="fs-2 my-3">
-          <i class="fab fa-js"></i>
-          <i class="fab fa-react"></i>
-          <i class="fab fa-html5"></i>
-          <i class="fab fa-css3-alt"></i>
-          <i class="fab fa-aws"></i>
-          <i class="fab fa-docker"></i>
-          <i class="fab fa-github"></i>
-        </div>
-      </div>
-    </article>
-
-    <article class="container mt-n5 technical-skills" id="skills">
-      <div class="d-flex row shadow-sm mx-1 mx-lg-6 bg-light rounded">
-        <div class="col-12 col-md-6">
-          <div class="border-primary h-100">
-            <div class="text-center my-4">
-              <div class="fs-4 mb-4 text-primary">
-                <i class="fas fa-code"></i>
-              </div>
-              <h4>Front-End Stack</h4>
-              <div class="mt-3">
-                <div class="text-primary">Primary Skills:</div>
-                Javascript/Jquery/ES6, React/Redux, HTML/HTML5, CSS/SASS
-              </div>
-              <div class="mt-3">
-                <div class="text-primary">Dev Tools:</div>
-                Visual Studio Code, Github, Bootstrap, Foundation, TailwindCSS, Terminal
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="border-primary h-100">
-            <div class="text-center my-4">
-              <div class="fs-4 mb-4 text-primary">
-                <i class="fas fa-database"></i>
-              </div>
-              <h4>Back-End Stack</h4>
-              <div class="mt-3">
-                <div class="text-primary">Languages I speak:</div>
-                Ruby, NodeJS, PHP, SQL
-              </div>
-              <div class="mt-3">
-                <div class="text-primary">Databases System:</div>
-                PostgreSQL, MySQL, DynamoDB, MongoDB
-              </div>
-              <div class="mt-3">
-                <div class="text-primary">Framework:</div>
-                Rails, ExpressJS
-              </div>
-              <div class="mt-3">
-                <div class="text-primary">CI/CD tools:</div>
-                Docker, Kubernetes, AWS
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </article>
-
-    <article class="container-fluid mt-6 professional-experience" id="work-experience">
-      <h2 class="mb-5 text-center">
-        My Work Experience
-      </h2>
-      <div class="row justify-content-center">
-        <div class="professional-experience__section mb-4 col-12 col-sm-6">
-          <a class="professional-experience__brief-info text-center d-block text-decoration-none"
-            data-bs-toggle="collapse" data-bs-target="#professional-experience__details1">
-            <img src="./assets/lojistic.jpeg" class="img-fluid mb-2" width="100" />
-            <div>
-              <h4>
-                Software Engineer at Lojistic
-              </h4>
-              <p class="text-dark">Jun 2020 - Present</p>
-            </div>
-          </a>
-          <div class="professional-experience__details collapse multi-collapse m-auto w-75 shadow-sm p-4"
-            id="professional-experience__details1">
-            <p>Architect and modernize an internal system that allows end-users to efficiently manage crucial
-              information of clients and their organizations and perform complicated actions within a couple of clicks</p>
-            <p>Refactor legacy application into reusable architecture by gradually migrating from legacy MVC and
-              multiple-page
-              web application to MVC with REST API and single-page web application</p>
-              <p>Seamlessly integrate with Salesforce and other internal systems to keep data in sync, processed at accurate
-                time, and aggregated</p>
-                <p>Perform data analysis to find deprecated data and identify data relationships to generate different types
-                  of reports</p>
-                <p>Actively participate in troubleshooting issues with existing applications, including defective features
-                  and
-                  performance bottlenecks</p>
-          </div>
-        </div>
-        <div class="professional-experience__section mb-4 col-12 col-sm-6">
-          <a class="professional-experience__brief-info text-center d-block text-decoration-none"
-            data-bs-toggle="collapse" data-bs-target="#professional-experience__details2">
-            <img src="./assets/zobrist.jpeg" class="img-fluid mb-2" width="100" />
-            <div>
-              <h4>
-                Full-stack Developer at Zobrist Consulting Group
-              </h4>
-              <p class="text-dark">Jan 2018 - Jun 2020</p>
-            </div>
-          </a>
-          <div class="professional-experience__details collapse multi-collapse m-auto w-75 shadow-sm p-4"
-            id="professional-experience__details2">
-            <p>Worked on Mobiecom, a single application and mobile-first UI storefront designed for WebSphere Commerce
-              and
-              WebSphere Commerce Managed Hosted platform using React/Redux and NodeJS/ExpressJS</p>
-            <p>Participated in the onboarding of Mobiecom’s clients, including providing production support as part of
-              the
-              Managed Services team</p>
-            <p>Onboard VF Corporation</p>
-            <p>Seamlessly migrated Foundation 4 to Foundation 6 including SCSS and JS</p>
-            <p>Collaborated with other developers and product managers to produce thoughtful implementations</p>
-            <p>Collaborated with QA by providing instructions and identifying areas to focus</p>
-            <p>Improved user experience through continual UI/UX fixes for all the brands on the VF platform</p>
-          </div>
-        </div>
-        <div class="professional-experience__section mb-4 col-12 col-sm-6">
-          <a class="professional-experience__brief-info text-center d-block text-decoration-none"
-            data-bs-toggle="collapse" data-bs-target="#professional-experience__details3">
-            <img src="./assets/mytailor.jpeg" class="img-fluid mb-2" width="100" />
-            <div>
-              <h4>
-                Software Engineer Intern at Mytailor.com
-              </h4>
-              <p class="text-dark">Feb 2017 - Dec 2017</p>
-            </div>
-          </a>
-          <div class="professional-experience__details collapse multi-collapse m-auto w-75 shadow-sm p-4"
-            id="professional-experience__details3">
-            <p>Developed and designed software using PHP, MySQL, JQuery, and HTML/CSS to create solid software with
-              great
-              user
-              experiences, responsive and high performance</p>
-            <p>Involved actively in application design, including data modeling and application architecture</p>
-            <p>Maintained, enhanced, and troubleshot existing applications
-              Improved 90% of the digital customer experience through continual UI and UX improvements and fixes</p>
-            <p>Collaborated with the SEO team to constantly improve website’s index ranking to the first page of google
-              search
-              results with targeted search terms</p>
-          </div>
-
-        </div>
-      </div>
-    </article>
-  </main>
-  <footer class="text-center mt-5 bg-dark text-primary py-2">
-    <div class="contact-me fs-2">
-      <a href="https://www.linkedin.com/in/thuc-huyen/"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/thuctonhuyen"><i class="fab fa-github"></i></a>
-    </div>
-    ©Copyright 2021 by Thuc Huyen. All rights reversed.
-  </footer>
-</body>
+      ©Copyright 2023 by Thuc Huyen. All rights reversed.
+    </footer>
+  </body>
 </html>
