@@ -178,12 +178,17 @@
         >
           <div
             class="mb-4 w-full sm:w-1/2 flex flex-col items-center"
-            x-data="{open: false}"
+            x-data="{open: false, firstTimeClick: false}"
           >
             <button
               class="flex flex-col justify-center items-center"
-              x-on:click="open = ! open"
+              x-on:click="open = ! open; firstTimeClick = true"
             >
+              <i
+                class="fas fa-hand-point-down animate-bounce mb-1 text-2xl"
+                x-show="!firstTimeClick"
+              >
+              </i>
               <img
                 src="./assets/socotra.jpeg"
                 class="img-fluid mb-4"
