@@ -14,40 +14,29 @@
 
     <script
       defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"
     ></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script
       src="https://kit.fontawesome.com/78035ae5d2.js"
       crossorigin="anonymous"
     ></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          fontFamily: {
-            sans: ["Dosis", "sans-serif"],
-          },
-          extend: {
-            backgroundSize: {
-              "100%": "100%",
-            },
-            colors: {
-              primary: "#ebb401",
-            },
-            backgroundImage: {
-              "intro-background":
-                "url('./assets/joanna-kosinska-1_CMoFsPfso-unsplash.jpeg')",
-            },
-          },
-        },
-      };
-    </script>
+    <style type="text/tailwindcss">
+      @theme {
+        --font-sans: "Dosis", sans-serif;
+        --color-primary: #ebb401;
+        --color-dark: #111827;
+        --color-surface: #1f2937;
+        --color-card: #f9fafb;
+        --color-muted: #d1d5db;
+      }
+    </style>
     <title>Thuc Huyen's Portfolio</title>
   </head>
 
   <body class="relative min-h-screen">
     <header class="sticky top-0 right-0 left-0">
-      <nav class="py-5 bg-gray-900 text-lg" id="main-navbar">
+      <nav class="py-5 bg-dark text-lg" id="main-navbar">
         <!-- // mobile nav bar -->
         <div class="sm:hidden flex flex-col" x-data="{ open: false}">
           <button
@@ -64,7 +53,7 @@
             x-transition:leave="transition ease duration-300 transform"
             x-transition:leave-start="opacity-100 translate-y-0"
             x-transition:leave-end="opacity-0 -translate-y-1"
-            class="text-primary ml-5 sm:ml-0"
+            class="text-primary ml-5 hover:text-white transition-colors"
             href="#about"
             >ABOUT</a
           >
@@ -76,7 +65,7 @@
             x-transition:leave="transition ease duration-300 transform"
             x-transition:leave-start="opacity-100 translate-y-0"
             x-transition:leave-end="opacity-0 -translate-y-1"
-            class="text-primary ml-5 sm:ml-0"
+            class="text-primary ml-5 hover:text-white transition-colors"
             href="#skills"
             >SKILLS</a
           >
@@ -88,37 +77,50 @@
             x-transition:leave="transition ease duration-300 transform"
             x-transition:leave-start="opacity-100 translate-y-0"
             x-transition:leave-end="opacity-0 -translate-y-1"
-            class="text-primary ml-5 sm:ml-0"
+            class="text-primary ml-5 hover:text-white transition-colors"
             href="#work-experience"
             >WORK EXPERIENCE</a
           >
         </div>
 
         <!-- // non mobile nav bar -->
-        <div class="hidden sm:flex flex-row justify-around">
-          <a class="text-primary ml-5 sm:ml-0" href="#about">ABOUT</a>
-          <a class="text-primary ml-5 sm:ml-0" href="#skills">SKILLS</a>
-          <a class="text-primary ml-5 sm:ml-0" href="#work-experience"
-            >WORK EXPERIENCE</a
+        <div class="hidden sm:flex flex-row justify-between items-center px-8">
+          <a href="#about" class="text-primary font-semibold tracking-widest"
+            >TH</a
           >
+          <div class="flex gap-8">
+            <a class="text-primary hover:text-white transition-colors" href="#about"
+              >ABOUT</a
+            >
+            <a class="text-primary hover:text-white transition-colors" href="#skills"
+              >SKILLS</a
+            >
+            <a
+              class="text-primary hover:text-white transition-colors"
+              href="#work-experience"
+              >WORK EXPERIENCE</a
+            >
+          </div>
         </div>
       </nav>
     </header>
 
     <main>
-      <article class="p-5 sm:bg-100% bg-primary md:h-96" id="about">
-        <div class="flex flex-col items-end my-5 text-end">
-          <h1 class="my-3 text-4xl font-medium">THUC HUYEN</h1>
-          <h3 class="my-3 text-2xl font-medium">
+      <article class="py-24 px-5 bg-gradient-to-b from-dark to-surface" id="about">
+        <div class="flex flex-col items-center text-center max-w-2xl mx-auto">
+          <h1 class="mb-3 text-6xl sm:text-7xl font-semibold tracking-widest text-primary">
+            THUC HUYEN
+          </h1>
+          <h3 class="mb-6 text-xl sm:text-2xl font-medium text-white">
             Front-end Developer | Full-stack Developer
           </h3>
-          <p class="my-3 w-1/2">
-            As a skilled and experienced Full-stack developer with a strong
-            focus on frontend development, I possess expertise in the latest
-            JavaScript technologies and frameworks, enabling me to create
-            immersive applications that deliver exceptional user experiences.
+          <p class="mb-8 max-w-xl leading-relaxed text-muted">
+            Front-end engineer with 8+ years building React-based applications
+            across insurance tech, logistics, and e-commerce. Full-stack capable,
+            with a focus on code quality, team collaboration, and interfaces that
+            are precise and maintainable.
           </p>
-          <div class="fs-2 my-3 text-2xl">
+          <div class="text-2xl text-primary space-x-3">
             <i class="fab fa-js"></i>
             <i class="fab fa-react"></i>
             <i class="fab fa-html5"></i>
@@ -130,51 +132,76 @@
         </div>
       </article>
 
-      <article class="-mt-5" id="skills">
+      <article class="mt-12" id="skills">
+        <h2 class="mb-10 text-center text-3xl font-medium">Skills</h2>
         <div
-          class="flex flex-col sm:flex-row sm:mx-10 md:mx-14 bg-gray-50 rounded sm:shadow-lg sm:shadow-slate-400"
+          class="flex flex-col sm:flex-row sm:mx-10 md:mx-14 bg-card rounded sm:shadow-lg sm:shadow-slate-400"
         >
-          <div class="w-full sm:w-1/2">
-            <div class="border-primary h-100">
-              <div class="text-center my-4">
-                <div class="fs-4 mb-4 text-primary">
-                  <i class="fas fa-code"></i>
+          <div class="w-full sm:w-1/2 p-6 sm:p-8">
+            <div class="text-center">
+              <div class="mb-4 text-primary text-2xl">
+                <i class="fas fa-code"></i>
+              </div>
+              <h4 class="text-xl font-medium">Front-End Stack</h4>
+              <div class="mt-4">
+                <div class="text-primary mb-2">Primary Skills</div>
+                <div class="flex flex-wrap justify-center gap-2">
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Javascript</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">React/Redux/NextJS</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">HTML/HTML5</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">CSS/SASS</span>
                 </div>
-                <h4 class="text-xl font-medium">Front-End Stack</h4>
-                <div class="mt-3">
-                  <div class="text-primary">Primary Skills:</div>
-                  Javascript, React/Redux/NextJS, HTML/HTML5, CSS/SASS
-                </div>
-                <div class="mt-3">
-                  <div class="text-primary">Dev Tools:</div>
-                  Visual Studio Code, Github, Bootstrap, Foundation, TailwindCSS
+              </div>
+              <div class="mt-4">
+                <div class="text-primary mb-2">Dev Tools</div>
+                <div class="flex flex-wrap justify-center gap-2">
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Visual Studio Code</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Github</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Bootstrap</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Foundation</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">TailwindCSS</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="w-full sm:w-1/2">
-            <div class="border-primary h-100">
-              <div class="text-center my-4">
-                <div class="fs-4 mb-4 text-primary">
-                  <i class="fas fa-database"></i>
+          <div class="w-full sm:w-1/2 p-6 sm:p-8 sm:border-l sm:border-primary/20">
+            <div class="text-center">
+              <div class="mb-4 text-primary text-2xl">
+                <i class="fas fa-database"></i>
+              </div>
+              <h4 class="text-xl font-medium">Back-End Stack</h4>
+              <div class="mt-4">
+                <div class="text-primary mb-2">Languages</div>
+                <div class="flex flex-wrap justify-center gap-2">
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">NodeJS</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Ruby</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">PHP</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">SQL</span>
                 </div>
-                <h4 class="text-xl font-medium">Back-End Stack</h4>
-                <div class="mt-3">
-                  <div class="text-primary">Languages I use:</div>
-                  NodeJS, Ruby, PHP, SQL
+              </div>
+              <div class="mt-4">
+                <div class="text-primary mb-2">Databases</div>
+                <div class="flex flex-wrap justify-center gap-2">
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">PostgreSQL</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">MySQL</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">DynamoDB</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">MongoDB</span>
                 </div>
-                <div class="mt-3">
-                  <div class="text-primary">Databases System:</div>
-                  PostgreSQL, MySQL, DynamoDB, MongoDB
+              </div>
+              <div class="mt-4">
+                <div class="text-primary mb-2">Frameworks</div>
+                <div class="flex flex-wrap justify-center gap-2">
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Rails</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">ExpressJS</span>
                 </div>
-                <div class="mt-3">
-                  <div class="text-primary">Framework:</div>
-                  Rails, ExpressJS
-                </div>
-                <div class="mt-3">
-                  <div class="text-primary">CI/CD tools:</div>
-                  Docker, Kubernetes, AWS
+              </div>
+              <div class="mt-4">
+                <div class="text-primary mb-2">CI/CD</div>
+                <div class="flex flex-wrap justify-center gap-2">
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Docker</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Kubernetes</span>
+                  <span class="rounded-full border border-primary px-3 py-1 text-sm">AWS</span>
                 </div>
               </div>
             </div>
@@ -186,36 +213,34 @@
         <h2 class="mb-10 text-center text-3xl font-medium">
           My Work Experience
         </h2>
-        <div
-          class="flex flex-col sm:flex-row justify-center mx-2 flex-1 sm:flex-wrap"
-        >
+        <div class="max-w-2xl mx-auto px-4">
           <div
-            class="mb-4 w-full sm:w-1/2 flex flex-col items-center"
-            x-data="{open: false, firstTimeClick: false}"
+            class="relative pl-8 pb-8 border-l-2 border-primary/30"
+            x-data="{ open: false }"
           >
+            <span
+              class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-primary"
+            ></span>
             <button
-              class="flex flex-col justify-center items-center hover:scale-125 hover:mb-5"
-              x-on:click="open = ! open; firstTimeClick = true"
+              class="w-full flex items-center gap-4 text-left"
+              x-on:click="open = !open"
             >
               <img
                 src="./assets/socotra.jpeg"
-                class="img-fluid mb-4"
-                width="100"
+                class="w-12 h-12 object-contain shrink-0"
               />
-              <div>
-                <h4 class="text-xl font-medium text-primary">
+              <div class="flex-1">
+                <h4 class="text-lg font-medium text-primary">
                   Frontend Engineer at Socotra
                 </h4>
-                <p class="text-dark">Jan 2022 - Present</p>
+                <p class="text-sm text-gray-500">Jan 2022 - Present</p>
               </div>
               <i
-                class="fas fa-hand-point-up animate-bounce -mt-5 text-lg self-end"
-                x-show="!firstTimeClick"
-              >
-              </i>
+                class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"
+                :class="open && 'rotate-180'"
+              ></i>
             </button>
             <div
-              class="m-auto w-3/4 shadow-sm p-4"
               x-show="open"
               x-transition:enter="transition ease duration-300 transform"
               x-transition:enter-start="opacity-0 -translate-y-12"
@@ -224,52 +249,58 @@
               x-transition:leave-start="opacity-100 translate-y-0"
               x-transition:leave-end="opacity-0 -translate-y-12"
             >
-              <p>
-                Lead frontend development projects by collaborating effectively
-                with product managers and UI/UX designers to align deliverables
-                with project objectives and user needs
-              </p>
-              <p>
-                Distribute tasks and responsibilities among team members
-                according to their strengths, optimizing productivity and
-                ensuring efficient project execution
-              </p>
-              <p>
-                Develop responsive and intuitive interfaces using React/React
-                Query/NextJS while adhering closely to UI/UX designers' mockups
-              </p>
-              <p>
-                Enhance code quality by creating purposeful unit tests and
-                integration tests
-              </p>
-              <p>
-                Proactively seek out solutions and best practices to enhance the
-                codebase and improve the overall experience for developers
-              </p>
+              <ul class="mt-3 space-y-2 text-sm text-gray-700 list-disc list-inside">
+                <li>
+                  Lead frontend development across [X] product streams, partnering
+                  with PMs and designers from requirements through delivery
+                </li>
+                <li>
+                  Coordinate task distribution across a [X]-person engineering team,
+                  aligning work to individual strengths to optimize delivery
+                </li>
+                <li>
+                  Build responsive, pixel-accurate interfaces in React, React Query,
+                  and NextJS
+                </li>
+                <li>
+                  Improve code reliability by authoring unit and integration tests,
+                  reducing regression rate by [X]%
+                </li>
+                <li>
+                  Drive frontend standards and best practices, reducing onboarding
+                  time and improving developer experience across the team
+                </li>
+              </ul>
             </div>
           </div>
+
           <div
-            class="mb-4 w-full sm:w-1/2 flex flex-col items-center"
-            x-data="{open: false}"
+            class="relative pl-8 pb-8 border-l-2 border-primary/30"
+            x-data="{ open: false }"
           >
+            <span
+              class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-primary"
+            ></span>
             <button
-              class="flex flex-col justify-center items-center hover:scale-125 hover:mb-5"
-              x-on:click="open = ! open"
+              class="w-full flex items-center gap-4 text-left"
+              x-on:click="open = !open"
             >
               <img
                 src="./assets/lojistic.jpeg"
-                class="img-fluid mb-4"
-                width="100"
+                class="w-12 h-12 object-contain shrink-0"
               />
-              <div>
-                <h4 class="text-xl font-medium text-primary">
+              <div class="flex-1">
+                <h4 class="text-lg font-medium text-primary">
                   Software Engineer at Lojistic
                 </h4>
-                <p class="text-dark">Jun 2020 - Dec 2021</p>
+                <p class="text-sm text-gray-500">Jun 2020 - Dec 2021</p>
               </div>
+              <i
+                class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"
+                :class="open && 'rotate-180'"
+              ></i>
             </button>
             <div
-              class="m-auto w-3/4 shadow-sm p-4"
               x-show="open"
               x-transition:enter="transition ease duration-300 transform"
               x-transition:enter-start="opacity-0 -translate-y-12"
@@ -278,54 +309,60 @@
               x-transition:leave-start="opacity-100 translate-y-0"
               x-transition:leave-end="opacity-0 -translate-y-12"
             >
-              <p>
-                Architect and modernize an internal system that allows end-users
-                to efficiently manage crucial information of clients and their
-                organizations and perform complicated actions within a couple of
-                clicks
-              </p>
-              <p>
-                Refactor legacy application into reusable architecture by
-                gradually migrating from legacy MVC and multiple-page web
-                application to MVC with REST API and single-page web application
-              </p>
-              <p>
-                Seamlessly integrate with Salesforce and other internal systems
-                to keep data in sync, processed at accurate time, and aggregated
-              </p>
-              <p>
-                Perform data analysis to find deprecated data and identify data
-                relationships to generate different types of reports
-              </p>
-              <p>
-                Actively participate in troubleshooting issues with existing
-                applications, including defective features and performance
-                bottlenecks
-              </p>
+              <ul class="mt-3 space-y-2 text-sm text-gray-700 list-disc list-inside">
+                <li>
+                  Architected and modernized an internal CRM-like system, reducing
+                  complex client management tasks from multiple steps to a single
+                  workflow
+                </li>
+                <li>
+                  Migrated a legacy multi-page MVC app to a REST API + SPA
+                  architecture, improving maintainability and enabling future
+                  feature velocity
+                </li>
+                <li>
+                  Integrated Salesforce and internal systems to keep client data
+                  synchronized, accurately processed, and aggregated in real time
+                </li>
+                <li>
+                  Conducted data analysis to surface deprecated records and map
+                  relationships, enabling [X] report types for stakeholders
+                </li>
+                <li>
+                  Diagnosed and resolved defective features and performance
+                  bottlenecks across production applications
+                </li>
+              </ul>
             </div>
           </div>
+
           <div
-            class="mb-4 w-full sm:w-1/2 flex flex-col items-center"
-            x-data="{open: false}"
+            class="relative pl-8 pb-8 border-l-2 border-primary/30"
+            x-data="{ open: false }"
           >
+            <span
+              class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-primary"
+            ></span>
             <button
-              class="flex flex-col justify-center items-center hover:scale-125 hover:mb-5"
-              x-on:click="open = ! open"
+              class="w-full flex items-center gap-4 text-left"
+              x-on:click="open = !open"
             >
               <img
                 src="./assets/zobrist.jpeg"
-                class="img-fluid mb-4"
-                width="100"
+                class="w-12 h-12 object-contain shrink-0"
               />
-              <div>
-                <h4 class="text-xl font-medium text-primary">
+              <div class="flex-1">
+                <h4 class="text-lg font-medium text-primary">
                   Full-stack Developer at Zobrist Consulting Group
                 </h4>
-                <p class="text-dark">Jan 2018 - Jun 2020</p>
+                <p class="text-sm text-gray-500">Jan 2018 - Jun 2020</p>
               </div>
+              <i
+                class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"
+                :class="open && 'rotate-180'"
+              ></i>
             </button>
             <div
-              class="m-auto w-3/4 shadow-sm p-4"
               x-show="open"
               x-transition:enter="transition ease duration-300 transform"
               x-transition:enter-start="opacity-0 -translate-y-12"
@@ -334,58 +371,62 @@
               x-transition:leave-start="opacity-100 translate-y-0"
               x-transition:leave-end="opacity-0 -translate-y-12"
             >
-              <p>
-                Worked on Mobiecom, a single application and mobile-first UI
-                storefront designed for WebSphere Commerce and WebSphere
-                Commerce Managed Hosted platform using React/Redux and
-                NodeJS/ExpressJS
-              </p>
-              <p>
-                Participated in the onboarding of Mobiecom's clients, including
-                providing production support as part of the Managed Services
-                team
-              </p>
-              <p>Onboard VF Corporation</p>
-              <p>
-                Seamlessly migrated Foundation 4 to Foundation 6 including SCSS
-                and JS
-              </p>
-              <p>
-                Collaborated with other developers and product managers to
-                produce thoughtful implementations
-              </p>
-              <p>
-                Collaborated with QA by providing instructions and identifying
-                areas to focus
-              </p>
-              <p>
-                Improved user experience through continual UI/UX fixes for all
-                the brands on the VF platform
-              </p>
+              <ul class="mt-3 space-y-2 text-sm text-gray-700 list-disc list-inside">
+                <li>
+                  Built Mobiecom, a mobile-first SPA storefront for WebSphere
+                  Commerce, using React/Redux and NodeJS/ExpressJS
+                </li>
+                <li>
+                  Onboarded clients onto the Mobiecom platform, providing
+                  production support as part of the Managed Services team
+                </li>
+                <li>
+                  Led onboarding of VF Corporation — one of the platform's
+                  largest clients
+                </li>
+                <li>
+                  Migrated the UI framework from Foundation 4 to Foundation 6,
+                  updating all SCSS and JS without disrupting live brands
+                </li>
+                <li>
+                  Collaborated with developers and PMs to scope and deliver
+                  features across [X] brand storefronts
+                </li>
+                <li>
+                  Partnered with QA to define test coverage areas and delivered
+                  ongoing UI/UX improvements across all brands on the VF platform
+                </li>
+              </ul>
             </div>
           </div>
+
           <div
-            class="mb-4 w-full sm:w-1/2 flex flex-col items-center"
-            x-data="{open: false}"
+            class="relative pl-8 border-l-2 border-transparent"
+            x-data="{ open: false }"
           >
+            <span
+              class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-primary"
+            ></span>
             <button
-              class="flex flex-col justify-center items-center hover:scale-125 hover:mb-5"
-              x-on:click="open = ! open"
+              class="w-full flex items-center gap-4 text-left"
+              x-on:click="open = !open"
             >
               <img
                 src="./assets/mytailor.jpeg"
-                class="img-fluid mb-4"
-                width="100"
+                class="w-12 h-12 object-contain shrink-0"
               />
-              <div>
-                <h4 class="text-xl font-medium text-primary">
+              <div class="flex-1">
+                <h4 class="text-lg font-medium text-primary">
                   Software Engineer Intern at Mytailor.com
                 </h4>
-                <p class="text-dark">Feb 2017 - Dec 2017</p>
+                <p class="text-sm text-gray-500">Feb 2017 - Dec 2017</p>
               </div>
+              <i
+                class="fas fa-chevron-down text-primary transition-transform duration-300 shrink-0"
+                :class="open && 'rotate-180'"
+              ></i>
             </button>
             <div
-              class="m-auto w-3/4 shadow-sm p-4"
               x-show="open"
               x-transition:enter="transition ease duration-300 transform"
               x-transition:enter-start="opacity-0 -translate-y-12"
@@ -394,43 +435,49 @@
               x-transition:leave-start="opacity-100 translate-y-0"
               x-transition:leave-end="opacity-0 -translate-y-12"
             >
-              <p>
-                Developed and designed software using PHP, MySQL, JQuery, and
-                HTML/CSS to create solid software with great user experiences,
-                responsive and high performance
-              </p>
-              <p>
-                Involved actively in application design, including data modeling
-                and application architecture
-              </p>
-              <p>
-                Maintained, enhanced, and troubleshot existing applications
-                Improved 90% of the digital customer experience through
-                continual UI and UX improvements and fixes
-              </p>
-              <p>
-                Collaborated with the SEO team to constantly improve website’s
-                index ranking to the first page of google search results with
-                targeted search terms
-              </p>
+              <ul class="mt-3 space-y-2 text-sm text-gray-700 list-disc list-inside">
+                <li>
+                  Built responsive, high-performance web software using PHP,
+                  MySQL, jQuery, and HTML/CSS
+                </li>
+                <li>
+                  Contributed to application design, including data modeling and
+                  system architecture
+                </li>
+                <li>
+                  Maintained and enhanced existing applications; improved digital
+                  customer experience by 90% through continual UI/UX fixes
+                </li>
+                <li>
+                  Collaborated with the SEO team to improve search rankings,
+                  achieving first-page placement for targeted keywords
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </article>
     </main>
 
-    <footer
-      class="text-center mt-5 text-primary py-2 bg-gray-900 text-lg relative bottom-0 w-full"
-    >
-      <div class="text-2xl">
-        <a href="https://www.linkedin.com/in/thuc-huyen/"
+    <footer class="text-center mt-12 text-primary py-6 bg-dark text-lg w-full">
+      <div class="text-2xl flex justify-center gap-6 mb-2">
+        <a
+          href="https://www.linkedin.com/in/thuc-huyen/"
+          class="hover:text-white transition-colors"
+          aria-label="LinkedIn"
           ><i class="fab fa-linkedin"></i
         ></a>
-        <a href="https://github.com/thuctonhuyen"
+        <a
+          href="https://github.com/thuctonhuyen"
+          class="hover:text-white transition-colors"
+          aria-label="GitHub"
           ><i class="fab fa-github"></i
         ></a>
       </div>
-      ©Copyright 2023 by Thuc Huyen. All rights reserved.
+      <p class="text-sm">
+        © <span x-data x-text="new Date().getFullYear()"></span> Thuc Huyen. All
+        rights reserved.
+      </p>
     </footer>
   </body>
 </html>
