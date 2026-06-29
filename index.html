@@ -32,6 +32,17 @@
         --color-accent: #8a6308;
         --color-bg: #faf7f0;
       }
+      @layer components {
+        .pill {
+          @apply inline-block rounded-full border border-primary px-3 py-1 text-sm;
+        }
+        .section-title {
+          @apply mb-10 text-center text-3xl font-medium;
+        }
+        .field-label {
+          @apply mb-2 text-accent;
+        }
+      }
     </style>
     <title>Thuc Huyen's Portfolio</title>
   </head>
@@ -135,7 +146,7 @@
       </article>
 
       <article class="mt-12 scroll-mt-20" id="skills">
-        <h2 class="mb-10 text-center text-3xl font-medium">Skills</h2>
+        <h2 class="section-title">Skills</h2>
         <div
           class="flex flex-col sm:flex-row sm:mx-10 md:mx-14 bg-card rounded sm:shadow-lg"
         >
@@ -146,22 +157,22 @@
               </div>
               <h4 class="text-xl font-medium">Front-End Stack</h4>
               <div class="mt-4">
-                <div class="text-accent mb-2">Primary Skills</div>
+                <div class="field-label">Primary Skills</div>
                 <div class="flex flex-wrap justify-center gap-2">
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Javascript</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">React/Redux/NextJS</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">HTML/HTML5</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">CSS/SASS</span>
+                  <span class="pill">Javascript</span>
+                  <span class="pill">React/Redux/NextJS</span>
+                  <span class="pill">HTML/HTML5</span>
+                  <span class="pill">CSS/SASS</span>
                 </div>
               </div>
               <div class="mt-4">
-                <div class="text-accent mb-2">Dev Tools</div>
+                <div class="field-label">Dev Tools</div>
                 <div class="flex flex-wrap justify-center gap-2">
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Visual Studio Code</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Github</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Bootstrap</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Foundation</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">TailwindCSS</span>
+                  <span class="pill">Visual Studio Code</span>
+                  <span class="pill">Github</span>
+                  <span class="pill">Bootstrap</span>
+                  <span class="pill">Foundation</span>
+                  <span class="pill">TailwindCSS</span>
                 </div>
               </div>
             </div>
@@ -174,36 +185,36 @@
               </div>
               <h4 class="text-xl font-medium">Back-End Stack</h4>
               <div class="mt-4">
-                <div class="text-accent mb-2">Languages</div>
+                <div class="field-label">Languages</div>
                 <div class="flex flex-wrap justify-center gap-2">
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">NodeJS</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Ruby</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">PHP</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">SQL</span>
+                  <span class="pill">NodeJS</span>
+                  <span class="pill">Ruby</span>
+                  <span class="pill">PHP</span>
+                  <span class="pill">SQL</span>
                 </div>
               </div>
               <div class="mt-4">
-                <div class="text-accent mb-2">Databases</div>
+                <div class="field-label">Databases</div>
                 <div class="flex flex-wrap justify-center gap-2">
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">PostgreSQL</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">MySQL</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">DynamoDB</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">MongoDB</span>
+                  <span class="pill">PostgreSQL</span>
+                  <span class="pill">MySQL</span>
+                  <span class="pill">DynamoDB</span>
+                  <span class="pill">MongoDB</span>
                 </div>
               </div>
               <div class="mt-4">
-                <div class="text-accent mb-2">Frameworks</div>
+                <div class="field-label">Frameworks</div>
                 <div class="flex flex-wrap justify-center gap-2">
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Rails</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">ExpressJS</span>
+                  <span class="pill">Rails</span>
+                  <span class="pill">ExpressJS</span>
                 </div>
               </div>
               <div class="mt-4">
-                <div class="text-accent mb-2">CI/CD</div>
+                <div class="field-label">CI/CD</div>
                 <div class="flex flex-wrap justify-center gap-2">
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Docker</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">Kubernetes</span>
-                  <span class="rounded-full border border-primary px-3 py-1 text-sm">AWS</span>
+                  <span class="pill">Docker</span>
+                  <span class="pill">Kubernetes</span>
+                  <span class="pill">AWS</span>
                 </div>
               </div>
             </div>
@@ -212,7 +223,7 @@
       </article>
 
       <article class="mt-12 scroll-mt-20" id="work-experience">
-        <h2 class="mb-10 text-center text-3xl font-medium">
+        <h2 class="section-title">
           My Work Experience
         </h2>
         <div class="max-w-2xl mx-auto px-4">
