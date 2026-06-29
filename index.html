@@ -27,14 +27,16 @@
         --color-primary: #ebb401;
         --color-dark: #111827;
         --color-surface: #1f2937;
-        --color-card: #f9fafb;
+        --color-card: #fffdf8;
         --color-muted: #d1d5db;
+        --color-accent: #8a6308;
+        --color-bg: #faf7f0;
       }
     </style>
     <title>Thuc Huyen's Portfolio</title>
   </head>
 
-  <body class="relative min-h-screen">
+  <body class="relative min-h-screen bg-bg">
     <header class="sticky top-0 right-0 left-0">
       <nav class="py-5 bg-dark text-lg" id="main-navbar">
         <!-- // mobile nav bar -->
@@ -106,7 +108,7 @@
     </header>
 
     <main>
-      <article class="py-24 px-5 bg-gradient-to-b from-dark to-surface" id="about">
+      <article class="py-24 px-5 bg-gradient-to-b from-dark to-surface scroll-mt-20" id="about">
         <div class="flex flex-col items-center text-center max-w-2xl mx-auto">
           <h1 class="mb-3 text-6xl sm:text-7xl font-semibold tracking-widest text-primary">
             THUC HUYEN
@@ -132,10 +134,10 @@
         </div>
       </article>
 
-      <article class="mt-12" id="skills">
+      <article class="mt-12 scroll-mt-20" id="skills">
         <h2 class="mb-10 text-center text-3xl font-medium">Skills</h2>
         <div
-          class="flex flex-col sm:flex-row sm:mx-10 md:mx-14 bg-card rounded sm:shadow-lg sm:shadow-slate-400"
+          class="flex flex-col sm:flex-row sm:mx-10 md:mx-14 bg-card rounded sm:shadow-lg"
         >
           <div class="w-full sm:w-1/2 p-6 sm:p-8">
             <div class="text-center">
@@ -144,7 +146,7 @@
               </div>
               <h4 class="text-xl font-medium">Front-End Stack</h4>
               <div class="mt-4">
-                <div class="text-primary mb-2">Primary Skills</div>
+                <div class="text-accent mb-2">Primary Skills</div>
                 <div class="flex flex-wrap justify-center gap-2">
                   <span class="rounded-full border border-primary px-3 py-1 text-sm">Javascript</span>
                   <span class="rounded-full border border-primary px-3 py-1 text-sm">React/Redux/NextJS</span>
@@ -153,7 +155,7 @@
                 </div>
               </div>
               <div class="mt-4">
-                <div class="text-primary mb-2">Dev Tools</div>
+                <div class="text-accent mb-2">Dev Tools</div>
                 <div class="flex flex-wrap justify-center gap-2">
                   <span class="rounded-full border border-primary px-3 py-1 text-sm">Visual Studio Code</span>
                   <span class="rounded-full border border-primary px-3 py-1 text-sm">Github</span>
@@ -172,7 +174,7 @@
               </div>
               <h4 class="text-xl font-medium">Back-End Stack</h4>
               <div class="mt-4">
-                <div class="text-primary mb-2">Languages</div>
+                <div class="text-accent mb-2">Languages</div>
                 <div class="flex flex-wrap justify-center gap-2">
                   <span class="rounded-full border border-primary px-3 py-1 text-sm">NodeJS</span>
                   <span class="rounded-full border border-primary px-3 py-1 text-sm">Ruby</span>
@@ -181,7 +183,7 @@
                 </div>
               </div>
               <div class="mt-4">
-                <div class="text-primary mb-2">Databases</div>
+                <div class="text-accent mb-2">Databases</div>
                 <div class="flex flex-wrap justify-center gap-2">
                   <span class="rounded-full border border-primary px-3 py-1 text-sm">PostgreSQL</span>
                   <span class="rounded-full border border-primary px-3 py-1 text-sm">MySQL</span>
@@ -190,14 +192,14 @@
                 </div>
               </div>
               <div class="mt-4">
-                <div class="text-primary mb-2">Frameworks</div>
+                <div class="text-accent mb-2">Frameworks</div>
                 <div class="flex flex-wrap justify-center gap-2">
                   <span class="rounded-full border border-primary px-3 py-1 text-sm">Rails</span>
                   <span class="rounded-full border border-primary px-3 py-1 text-sm">ExpressJS</span>
                 </div>
               </div>
               <div class="mt-4">
-                <div class="text-primary mb-2">CI/CD</div>
+                <div class="text-accent mb-2">CI/CD</div>
                 <div class="flex flex-wrap justify-center gap-2">
                   <span class="rounded-full border border-primary px-3 py-1 text-sm">Docker</span>
                   <span class="rounded-full border border-primary px-3 py-1 text-sm">Kubernetes</span>
@@ -209,7 +211,7 @@
         </div>
       </article>
 
-      <article class="mt-12" id="work-experience">
+      <article class="mt-12 scroll-mt-20" id="work-experience">
         <h2 class="mb-10 text-center text-3xl font-medium">
           My Work Experience
         </h2>
@@ -230,7 +232,7 @@
                 class="w-12 h-12 object-contain shrink-0"
               />
               <div class="flex-1">
-                <h4 class="text-lg font-medium text-primary">
+                <h4 class="text-lg font-medium text-accent">
                   Frontend Engineer at Socotra
                 </h4>
                 <p class="text-sm text-gray-500">Jan 2022 - Present</p>
@@ -291,7 +293,7 @@
                 class="w-12 h-12 object-contain shrink-0"
               />
               <div class="flex-1">
-                <h4 class="text-lg font-medium text-primary">
+                <h4 class="text-lg font-medium text-accent">
                   Software Engineer at Lojistic
                 </h4>
                 <p class="text-sm text-gray-500">Jun 2020 - Dec 2021</p>
@@ -353,7 +355,7 @@
                 class="w-12 h-12 object-contain shrink-0"
               />
               <div class="flex-1">
-                <h4 class="text-lg font-medium text-primary">
+                <h4 class="text-lg font-medium text-accent">
                   Full-stack Developer at Zobrist Consulting Group
                 </h4>
                 <p class="text-sm text-gray-500">Jan 2018 - Jun 2020</p>
@@ -417,7 +419,7 @@
                 class="w-12 h-12 object-contain shrink-0"
               />
               <div class="flex-1">
-                <h4 class="text-lg font-medium text-primary">
+                <h4 class="text-lg font-medium text-accent">
                   Software Engineer Intern at Mytailor.com
                 </h4>
                 <p class="text-sm text-gray-500">Feb 2017 - Dec 2017</p>
