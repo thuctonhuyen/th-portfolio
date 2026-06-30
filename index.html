@@ -51,6 +51,11 @@
           scroll-behavior: auto !important;
         }
       }
+      html,
+      body {
+        overflow-x: clip;
+        max-width: 100%;
+      }
       .reveal {
         transition: opacity 0.5s ease, transform 0.5s ease;
       }
@@ -64,7 +69,7 @@
       }
       .hero-glow {
         position: absolute;
-        inset: -30% -15%;
+        inset: -30% 0;
         z-index: 0;
         background: radial-gradient(
           closest-side,
@@ -100,7 +105,7 @@
     <title>Thuc Huyen's Portfolio</title>
   </head>
 
-  <body class="relative min-h-screen bg-dark text-muted text-lg">
+  <body class="relative min-h-screen bg-dark text-muted text-lg overflow-x-clip">
     <div
       id="scroll-progress"
       class="fixed top-0 left-0 w-full h-1 bg-primary origin-left z-50"
