@@ -50,23 +50,23 @@
       }
       @layer components {
         .pill {
-          @apply inline-block rounded-full border border-card-border px-3 py-1 text-sm text-muted transition-colors hover:border-primary hover:text-primary;
+          @apply inline-block rounded-full border border-card-border px-3 py-1 text-base text-muted transition-colors hover:border-primary hover:text-primary;
         }
         .pill-primary {
           @apply border-primary/60 text-primary hover:border-primary;
         }
         .section-title {
-          @apply mb-10 text-center text-3xl font-medium text-heading;
+          @apply mb-10 text-center text-4xl font-medium text-heading;
         }
         .field-label {
-          @apply mb-2 text-primary;
+          @apply mb-2 text-base text-primary;
         }
       }
     </style>
     <title>Thuc Huyen's Portfolio</title>
   </head>
 
-  <body class="relative min-h-screen bg-dark text-muted">
+  <body class="relative min-h-screen bg-dark text-muted text-lg">
     <header class="sticky top-0 right-0 left-0">
       <nav
         class="py-5 bg-dark border-b border-card-border text-lg"
@@ -205,7 +205,7 @@
               <div class="mb-4 text-primary text-2xl">
                 <i class="fas fa-code"></i>
               </div>
-              <h4 class="text-xl font-medium">Front-End Stack</h4>
+              <h4 class="text-2xl font-medium">Front-End Stack</h4>
               <div class="mt-4">
                 <div class="field-label">Primary Skills</div>
                 <div class="flex flex-wrap justify-center gap-2">
@@ -233,7 +233,7 @@
               <div class="mb-4 text-primary text-2xl">
                 <i class="fas fa-database"></i>
               </div>
-              <h4 class="text-xl font-medium">Back-End Stack</h4>
+              <h4 class="text-2xl font-medium">Back-End Stack</h4>
               <div class="mt-4">
                 <div class="field-label">Languages</div>
                 <div class="flex flex-wrap justify-center gap-2">
@@ -296,7 +296,7 @@
                 class="w-12 h-12 object-contain shrink-0"
               />
               <div class="flex-1">
-                <h4 class="text-lg font-medium text-primary">
+                <h4 class="text-xl font-medium text-primary">
                   Frontend Engineer at Socotra
                 </h4>
                 <p class="text-sm text-subtle">Jan 2022 - Present</p>
@@ -316,7 +316,7 @@
               x-transition:leave-end="opacity-0 -translate-y-12"
               id="exp-socotra"
             >
-              <ul class="mt-3 space-y-2 text-sm text-muted list-disc list-inside">
+              <ul class="mt-3 space-y-2 text-base text-muted list-disc list-inside">
                 <li>
                   Lead frontend development across multiple product streams,
                   partnering with PMs and designers from requirements through
@@ -361,7 +361,7 @@
                 class="w-12 h-12 object-contain shrink-0"
               />
               <div class="flex-1">
-                <h4 class="text-lg font-medium text-primary">
+                <h4 class="text-xl font-medium text-primary">
                   Software Engineer at Lojistic
                 </h4>
                 <p class="text-sm text-subtle">Jun 2020 - Dec 2021</p>
@@ -381,7 +381,7 @@
               x-transition:leave-end="opacity-0 -translate-y-12"
               id="exp-lojistic"
             >
-              <ul class="mt-3 space-y-2 text-sm text-muted list-disc list-inside">
+              <ul class="mt-3 space-y-2 text-base text-muted list-disc list-inside">
                 <li>
                   Architected and modernized an internal CRM-like system, reducing
                   complex client management tasks from multiple steps to a single
@@ -427,7 +427,7 @@
                 class="w-12 h-12 object-contain shrink-0"
               />
               <div class="flex-1">
-                <h4 class="text-lg font-medium text-primary">
+                <h4 class="text-xl font-medium text-primary">
                   Full-stack Developer at Zobrist Consulting Group
                 </h4>
                 <p class="text-sm text-subtle">Jan 2018 - Jun 2020</p>
@@ -447,7 +447,7 @@
               x-transition:leave-end="opacity-0 -translate-y-12"
               id="exp-zobrist"
             >
-              <ul class="mt-3 space-y-2 text-sm text-muted list-disc list-inside">
+              <ul class="mt-3 space-y-2 text-base text-muted list-disc list-inside">
                 <li>
                   Built Mobiecom, a mobile-first SPA storefront for WebSphere
                   Commerce, using React/Redux and NodeJS/ExpressJS
@@ -495,7 +495,7 @@
                 class="w-12 h-12 object-contain shrink-0"
               />
               <div class="flex-1">
-                <h4 class="text-lg font-medium text-primary">
+                <h4 class="text-xl font-medium text-primary">
                   Software Engineer Intern at Mytailor.com
                 </h4>
                 <p class="text-sm text-subtle">Feb 2017 - Dec 2017</p>
@@ -515,7 +515,7 @@
               x-transition:leave-end="opacity-0 -translate-y-12"
               id="exp-mytailor"
             >
-              <ul class="mt-3 space-y-2 text-sm text-muted list-disc list-inside">
+              <ul class="mt-3 space-y-2 text-base text-muted list-disc list-inside">
                 <li>
                   Built responsive, high-performance web software using PHP,
                   MySQL, jQuery, and HTML/CSS
@@ -539,17 +539,17 @@
       </article>
     </main>
 
-    <footer class="text-center mt-12 text-primary py-6 bg-dark border-t border-primary/10 text-lg w-full">
+    <footer class="text-center mt-12 text-subtle py-6 bg-dark border-t border-card-border text-lg w-full">
       <div class="text-2xl flex justify-center gap-6 mb-2">
         <a
           href="https://www.linkedin.com/in/thuc-huyen/"
-          class="hover:text-white transition-colors"
+          class="hover:text-primary transition-colors"
           aria-label="LinkedIn"
           ><i class="fab fa-linkedin"></i
         ></a>
         <a
           href="https://github.com/thuctonhuyen"
-          class="hover:text-white transition-colors"
+          class="hover:text-primary transition-colors"
           aria-label="GitHub"
           ><i class="fab fa-github"></i
         ></a>
