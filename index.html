@@ -25,14 +25,12 @@
       @theme {
         --font-sans: "Dosis", sans-serif;
         --color-primary: #ebb401;
-        --color-dark: #111827;
-        --color-surface: #1f2937;
-        --color-card: #fffdf8;
-        --color-muted: #d1d5db;
-        --color-accent: #8a6308;
-        --color-bg: #faf7f0;
-        --color-ink: #374151;
-        --color-subtle: #6b7280;
+        --color-dark: #1a1714;
+        --color-surface: #292524;
+        --color-card-border: #44403c;
+        --color-heading: #f5f0e8;
+        --color-muted: #d6cfc4;
+        --color-subtle: #a8a29e;
       }
       @layer base {
         :focus-visible {
@@ -52,10 +50,13 @@
       }
       @layer components {
         .pill {
-          @apply inline-block rounded-full border border-primary px-3 py-1 text-sm;
+          @apply inline-block rounded-full border border-card-border px-3 py-1 text-sm text-muted transition-colors hover:border-primary hover:text-primary;
+        }
+        .pill-primary {
+          @apply border-primary/60 text-primary hover:border-primary;
         }
         .section-title {
-          @apply mb-10 text-center text-3xl font-medium text-white;
+          @apply mb-10 text-center text-3xl font-medium text-heading;
         }
         .field-label {
           @apply mb-2 text-primary;
@@ -144,7 +145,7 @@
           <h1 class="mb-3 text-6xl sm:text-7xl font-semibold tracking-widest text-primary">
             THUC HUYEN
           </h1>
-          <h3 class="mb-6 text-xl sm:text-2xl font-medium text-white">
+          <h3 class="mb-6 text-xl sm:text-2xl font-medium text-heading">
             Front-end Developer | Full-stack Developer
           </h3>
           <p class="mb-8 max-w-xl leading-relaxed text-muted">
@@ -168,7 +169,7 @@
       <article class="mt-12 scroll-mt-20" id="skills">
         <h2 class="section-title">Skills</h2>
         <div
-          class="flex flex-col sm:flex-row sm:mx-10 md:mx-14 bg-surface text-white rounded sm:shadow-lg"
+          class="flex flex-col sm:flex-row sm:mx-10 md:mx-14 bg-surface text-heading rounded border border-card-border"
         >
           <div class="w-full sm:w-1/2 p-6 sm:p-8">
             <div class="text-center">
@@ -179,10 +180,10 @@
               <div class="mt-4">
                 <div class="field-label">Primary Skills</div>
                 <div class="flex flex-wrap justify-center gap-2">
-                  <span class="pill">Javascript</span>
-                  <span class="pill">React/Redux/NextJS</span>
-                  <span class="pill">HTML/HTML5</span>
-                  <span class="pill">CSS/SASS</span>
+                  <span class="pill pill-primary">Javascript</span>
+                  <span class="pill pill-primary">React/Redux/NextJS</span>
+                  <span class="pill pill-primary">HTML/HTML5</span>
+                  <span class="pill pill-primary">CSS/SASS</span>
                 </div>
               </div>
               <div class="mt-4">
@@ -198,7 +199,7 @@
             </div>
           </div>
 
-          <div class="w-full sm:w-1/2 p-6 sm:p-8 sm:border-l sm:border-primary/20">
+          <div class="w-full sm:w-1/2 p-6 sm:p-8 sm:border-l sm:border-card-border">
             <div class="text-center">
               <div class="mb-4 text-primary text-2xl">
                 <i class="fas fa-database"></i>
