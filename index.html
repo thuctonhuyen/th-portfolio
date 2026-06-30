@@ -68,7 +68,26 @@
 
   <body class="relative min-h-screen bg-dark text-muted">
     <header class="sticky top-0 right-0 left-0">
-      <nav class="py-5 bg-dark text-lg" id="main-navbar">
+      <nav
+        class="py-5 bg-dark border-b border-card-border text-lg"
+        id="main-navbar"
+        x-data="{
+          active: 'about',
+          init() {
+            const obs = new IntersectionObserver(
+              (entries) =>
+                entries.forEach((e) => {
+                  if (e.isIntersecting) this.active = e.target.id;
+                }),
+              { rootMargin: '-50% 0px -50% 0px' }
+            );
+            ['about', 'skills', 'work-experience'].forEach((id) => {
+              const el = document.getElementById(id);
+              if (el) obs.observe(el);
+            });
+          },
+        }"
+      >
         <!-- // mobile nav bar -->
         <div class="sm:hidden flex flex-col" x-data="{ open: false}">
           <button
@@ -87,7 +106,8 @@
             x-transition:leave="transition ease duration-300 transform"
             x-transition:leave-start="opacity-100 translate-y-0"
             x-transition:leave-end="opacity-0 -translate-y-1"
-            class="text-primary ml-5 hover:text-white transition-colors"
+            class="ml-5 transition-colors"
+            :class="active === 'about' ? 'text-primary' : 'text-muted hover:text-primary'"
             href="#about"
             >ABOUT</a
           >
@@ -99,7 +119,8 @@
             x-transition:leave="transition ease duration-300 transform"
             x-transition:leave-start="opacity-100 translate-y-0"
             x-transition:leave-end="opacity-0 -translate-y-1"
-            class="text-primary ml-5 hover:text-white transition-colors"
+            class="ml-5 transition-colors"
+            :class="active === 'skills' ? 'text-primary' : 'text-muted hover:text-primary'"
             href="#skills"
             >SKILLS</a
           >
@@ -111,7 +132,8 @@
             x-transition:leave="transition ease duration-300 transform"
             x-transition:leave-start="opacity-100 translate-y-0"
             x-transition:leave-end="opacity-0 -translate-y-1"
-            class="text-primary ml-5 hover:text-white transition-colors"
+            class="ml-5 transition-colors"
+            :class="active === 'work-experience' ? 'text-primary' : 'text-muted hover:text-primary'"
             href="#work-experience"
             >WORK EXPERIENCE</a
           >
@@ -123,14 +145,21 @@
             >TH</a
           >
           <div class="flex gap-8">
-            <a class="text-primary hover:text-white transition-colors" href="#about"
+            <a
+              class="transition-colors"
+              :class="active === 'about' ? 'text-primary' : 'text-muted hover:text-primary'"
+              href="#about"
               >ABOUT</a
             >
-            <a class="text-primary hover:text-white transition-colors" href="#skills"
+            <a
+              class="transition-colors"
+              :class="active === 'skills' ? 'text-primary' : 'text-muted hover:text-primary'"
+              href="#skills"
               >SKILLS</a
             >
             <a
-              class="text-primary hover:text-white transition-colors"
+              class="transition-colors"
+              :class="active === 'work-experience' ? 'text-primary' : 'text-muted hover:text-primary'"
               href="#work-experience"
               >WORK EXPERIENCE</a
             >
@@ -154,14 +183,14 @@
             with a focus on code quality, team collaboration, and interfaces that
             are precise and maintainable.
           </p>
-          <div class="text-2xl text-primary space-x-3">
-            <i class="fab fa-js"></i>
-            <i class="fab fa-react"></i>
-            <i class="fab fa-html5"></i>
-            <i class="fab fa-css3-alt"></i>
-            <i class="fab fa-aws"></i>
-            <i class="fab fa-docker"></i>
-            <i class="fab fa-github"></i>
+          <div class="text-2xl text-subtle space-x-3">
+            <i class="fab fa-js hover:text-primary transition-colors"></i>
+            <i class="fab fa-react hover:text-primary transition-colors"></i>
+            <i class="fab fa-html5 hover:text-primary transition-colors"></i>
+            <i class="fab fa-css3-alt hover:text-primary transition-colors"></i>
+            <i class="fab fa-aws hover:text-primary transition-colors"></i>
+            <i class="fab fa-docker hover:text-primary transition-colors"></i>
+            <i class="fab fa-github hover:text-primary transition-colors"></i>
           </div>
         </div>
       </article>
