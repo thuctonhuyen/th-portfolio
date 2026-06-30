@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,12 +51,32 @@
           scroll-behavior: auto !important;
         }
       }
+      .reveal {
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .js .reveal {
+        opacity: 0;
+        transform: translateY(1rem);
+      }
+      .js .reveal.revealed {
+        opacity: 1;
+        transform: none;
+      }
+      .hero-glow {
+        position: absolute;
+        inset: -30% -15%;
+        z-index: 0;
+        background: radial-gradient(
+          closest-side,
+          rgba(235, 180, 1, 0.28),
+          transparent 75%
+        );
+        filter: blur(40px);
+        pointer-events: none;
+      }
       @layer components {
         .pill {
           @apply inline-block rounded-full border border-card-border px-3 py-1 text-base text-muted transition-colors hover:border-primary hover:text-primary;
-        }
-        .pill-primary {
-          @apply border-primary/60 text-primary hover:border-primary;
         }
         .section-title {
           @apply mb-10 text-center text-4xl font-medium text-heading;
@@ -61,13 +84,30 @@
         .field-label {
           @apply mb-2 text-base text-primary;
         }
+        .nav-link {
+          @apply relative transition-colors;
+        }
+        .nav-link::after {
+          content: "";
+          @apply pointer-events-none absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-primary transition-transform duration-300;
+        }
+        .nav-link:hover::after,
+        .nav-link.is-active::after {
+          @apply scale-x-100;
+        }
       }
     </style>
     <title>Thuc Huyen's Portfolio</title>
   </head>
 
   <body class="relative min-h-screen bg-dark text-muted text-lg">
-    <header class="sticky top-0 right-0 left-0">
+    <div
+      id="scroll-progress"
+      class="fixed top-0 left-0 w-full h-1 bg-primary origin-left z-50"
+      style="transform: scaleX(0)"
+      aria-hidden="true"
+    ></div>
+    <header class="sticky top-0 right-0 left-0 z-40">
       <nav
         class="py-5 bg-dark border-b border-card-border text-lg"
         id="main-navbar"
@@ -146,20 +186,20 @@
           >
           <div class="flex gap-8">
             <a
-              class="transition-colors"
-              :class="active === 'about' ? 'text-primary' : 'text-muted hover:text-primary'"
+              class="nav-link"
+              :class="active === 'about' ? 'text-primary is-active' : 'text-muted hover:text-primary'"
               href="#about"
               >ABOUT</a
             >
             <a
-              class="transition-colors"
-              :class="active === 'skills' ? 'text-primary' : 'text-muted hover:text-primary'"
+              class="nav-link"
+              :class="active === 'skills' ? 'text-primary is-active' : 'text-muted hover:text-primary'"
               href="#skills"
               >SKILLS</a
             >
             <a
-              class="transition-colors"
-              :class="active === 'work-experience' ? 'text-primary' : 'text-muted hover:text-primary'"
+              class="nav-link"
+              :class="active === 'work-experience' ? 'text-primary is-active' : 'text-muted hover:text-primary'"
               href="#work-experience"
               >WORK EXPERIENCE</a
             >
@@ -170,12 +210,15 @@
 
     <main>
       <article class="py-24 px-5 bg-gradient-to-b from-dark to-surface scroll-mt-20" id="about">
-        <div class="flex flex-col items-center text-center max-w-2xl mx-auto">
-          <h1 class="mb-3 text-6xl sm:text-7xl font-semibold tracking-widest text-primary">
-            THUC HUYEN
-          </h1>
+        <div class="reveal flex flex-col items-center text-center max-w-2xl mx-auto">
+          <div class="relative inline-block mb-3">
+            <span class="hero-glow" aria-hidden="true"></span>
+            <h1 class="relative z-10 text-6xl sm:text-7xl font-semibold tracking-widest text-primary">
+              THUC HUYEN
+            </h1>
+          </div>
           <h3 class="mb-6 text-xl sm:text-2xl font-medium text-heading">
-            Front-end Developer | Full-stack Developer
+            Front-end Developer · Full-stack Developer
           </h3>
           <p class="mb-8 max-w-xl leading-relaxed text-muted">
             Front-end engineer with 8+ years building React-based applications
@@ -196,7 +239,8 @@
       </article>
 
       <article class="mt-12 scroll-mt-20" id="skills">
-        <h2 class="section-title">Skills</h2>
+        <h2 class="section-title reveal">Skills</h2>
+        <div class="reveal">
         <div
           class="flex flex-col sm:flex-row sm:mx-10 md:mx-14 bg-surface text-heading rounded border border-card-border"
         >
@@ -209,10 +253,10 @@
               <div class="mt-4">
                 <div class="field-label">Primary Skills</div>
                 <div class="flex flex-wrap justify-center gap-2">
-                  <span class="pill pill-primary">Javascript</span>
-                  <span class="pill pill-primary">React/Redux/NextJS</span>
-                  <span class="pill pill-primary">HTML/HTML5</span>
-                  <span class="pill pill-primary">CSS/SASS</span>
+                  <span class="pill">Javascript</span>
+                  <span class="pill">React/Redux/NextJS</span>
+                  <span class="pill">HTML/HTML5</span>
+                  <span class="pill">CSS/SASS</span>
                 </div>
               </div>
               <div class="mt-4">
@@ -270,22 +314,23 @@
             </div>
           </div>
         </div>
+        </div>
       </article>
 
       <article class="mt-12 scroll-mt-20" id="work-experience">
-        <h2 class="section-title">
+        <h2 class="section-title reveal">
           My Work Experience
         </h2>
         <div class="max-w-2xl mx-auto px-4">
           <div
-            class="relative pl-8 pb-8 border-l-2 border-primary/30"
+            class="reveal relative pl-8 pb-8 border-l-2 border-primary/30"
             x-data="{ open: false }"
           >
             <span
               class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-primary"
             ></span>
             <button
-              class="w-full flex items-center gap-4 text-left"
+              class="group w-full flex items-center gap-4 text-left rounded-lg p-2 -m-2 transition-all duration-300 hover:bg-card-border/20 hover:translate-x-1"
               x-on:click="open = !open"
               :aria-expanded="open"
               aria-controls="exp-socotra"
@@ -293,7 +338,7 @@
               <img
                 src="./assets/socotra.jpeg"
                 alt="Socotra logo"
-                class="w-12 h-12 object-contain shrink-0"
+                class="w-12 h-12 object-contain shrink-0 transition-transform duration-300 group-hover:scale-110"
               />
               <div class="flex-1">
                 <h4 class="text-xl font-medium text-primary">
@@ -343,14 +388,14 @@
           </div>
 
           <div
-            class="relative pl-8 pb-8 border-l-2 border-primary/30"
+            class="reveal relative pl-8 pb-8 border-l-2 border-primary/30"
             x-data="{ open: false }"
           >
             <span
               class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-primary"
             ></span>
             <button
-              class="w-full flex items-center gap-4 text-left"
+              class="group w-full flex items-center gap-4 text-left rounded-lg p-2 -m-2 transition-all duration-300 hover:bg-card-border/20 hover:translate-x-1"
               x-on:click="open = !open"
               :aria-expanded="open"
               aria-controls="exp-lojistic"
@@ -358,7 +403,7 @@
               <img
                 src="./assets/lojistic.jpeg"
                 alt="Lojistic logo"
-                class="w-12 h-12 object-contain shrink-0"
+                class="w-12 h-12 object-contain shrink-0 transition-transform duration-300 group-hover:scale-110"
               />
               <div class="flex-1">
                 <h4 class="text-xl font-medium text-primary">
@@ -409,14 +454,14 @@
           </div>
 
           <div
-            class="relative pl-8 pb-8 border-l-2 border-primary/30"
+            class="reveal relative pl-8 pb-8 border-l-2 border-primary/30"
             x-data="{ open: false }"
           >
             <span
               class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-primary"
             ></span>
             <button
-              class="w-full flex items-center gap-4 text-left"
+              class="group w-full flex items-center gap-4 text-left rounded-lg p-2 -m-2 transition-all duration-300 hover:bg-card-border/20 hover:translate-x-1"
               x-on:click="open = !open"
               :aria-expanded="open"
               aria-controls="exp-zobrist"
@@ -424,7 +469,7 @@
               <img
                 src="./assets/zobrist.jpeg"
                 alt="Zobrist Consulting Group logo"
-                class="w-12 h-12 object-contain shrink-0"
+                class="w-12 h-12 object-contain shrink-0 transition-transform duration-300 group-hover:scale-110"
               />
               <div class="flex-1">
                 <h4 class="text-xl font-medium text-primary">
@@ -477,14 +522,14 @@
           </div>
 
           <div
-            class="relative pl-8 border-l-2 border-transparent"
+            class="reveal relative pl-8 border-l-2 border-transparent"
             x-data="{ open: false }"
           >
             <span
               class="absolute -left-2 top-1 w-4 h-4 rounded-full bg-primary"
             ></span>
             <button
-              class="w-full flex items-center gap-4 text-left"
+              class="group w-full flex items-center gap-4 text-left rounded-lg p-2 -m-2 transition-all duration-300 hover:bg-card-border/20 hover:translate-x-1"
               x-on:click="open = !open"
               :aria-expanded="open"
               aria-controls="exp-mytailor"
@@ -492,7 +537,7 @@
               <img
                 src="./assets/mytailor.jpeg"
                 alt="Mytailor.com logo"
-                class="w-12 h-12 object-contain shrink-0"
+                class="w-12 h-12 object-contain shrink-0 transition-transform duration-300 group-hover:scale-110"
               />
               <div class="flex-1">
                 <h4 class="text-xl font-medium text-primary">
@@ -559,5 +604,34 @@
         rights reserved.
       </p>
     </footer>
+
+    <script>
+      (() => {
+        const els = document.querySelectorAll(".reveal");
+        const obs = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("revealed");
+                observer.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        els.forEach((el) => obs.observe(el));
+
+        const bar = document.getElementById("scroll-progress");
+        const updateProgress = () => {
+          const doc = document.documentElement;
+          const max = doc.scrollHeight - doc.clientHeight;
+          const p = max > 0 ? doc.scrollTop / max : 0;
+          bar.style.transform = "scaleX(" + p + ")";
+        };
+        window.addEventListener("scroll", updateProgress, { passive: true });
+        window.addEventListener("resize", updateProgress, { passive: true });
+        updateProgress();
+      })();
+    </script>
   </body>
 </html>
